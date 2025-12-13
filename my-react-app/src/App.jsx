@@ -1,22 +1,47 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import GameDetail from "./pages/GameDetail";
-import Header from "./pages/Header";
-import Footer from "./pages/Footer";
+import { Routes, Route } from 'react-router-dom';
+import { createContext, useState } from 'react';
+import Layout from './layout/Layout';
+import PostsList from './pages/PostsList';
+import PostDetail from './pages/PostDetail';
+import CreatePost from './pages/CreatePost';
+import EditPost from './pages/EditPost';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Profile from './pages/Profile';
 
-function App() {
+export const PostsContext = createContext();
+
+export default function App() {
+  const [posts, setPosts] = useState([]);
+
+  const addPost = (newPost) => {
+    const postWithId = { ...newPost, id: Date.now() };
+    setPosts(prev => [postWithId, ...prev]);
+  };
+
+  const updatePost = (updatedPost) => {
+    setPosts(prev => prev.map(post => post.id === updatedPost.id ? updatedPost : post));
+  };
+
+  const deletePost = (id) => {
+    setPosts(prev => prev.filter(post => post.id !== id));
+  };
+
   return (
-    <BrowserRouter>
-      <Header />
-      <main className="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/game/:id" element={<GameDetail />} />
-        </Routes>
-      </main>
-      <Footer />
-    </BrowserRouter>
+    <PostsContext.Provider value={{ posts, setPosts, addPost, updatePost, deletePost }}>
+      {/* Убрали BrowserRouter здесь */}
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<PostsList />} />
+          <Route path="post/:id" element={<PostDetail />} />
+          <Route path="create" element={<CreatePost />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="edit/:id" element={<EditPost />} />
+
+        </Route>
+      </Routes>
+    </PostsContext.Provider>
   );
 }
-
-export default App;
