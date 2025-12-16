@@ -1,9 +1,13 @@
 .footer{
-    padding: 18px 20px;
-    background: linear-gradient(180deg, rgba(255,245,247,0.06), rgba(255,255,255,0.02));
-    margin-top: 30px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 14px 20px;
+    background: linear-gradient(180deg, rgba(255,245,247,0.04), rgba(255,255,255,0.01));
     text-align: center;
-    border-top: 1px solid rgba(0,0,0,0.04);
+    border-top: 1px solid var(--border);
+    z-index: 40;
 }
 
-.footer p{margin:0;color:var(--text);opacity:0.8}
+.footer p{margin:0;color:var(--text);opacity:0.85}

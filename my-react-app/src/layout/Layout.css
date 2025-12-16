@@ -1,7 +1,7 @@
 .main{
     max-width: 1000px;
     margin: 28px auto;
-    padding: 28px;
+    padding: 28px 28px 100px; /* bottom padding to avoid overlap with fixed footer */
     background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,250,255,0.6));
     border-radius: 16px;
     box-shadow: 0 14px 40px rgba(0,0,0,0.06);
