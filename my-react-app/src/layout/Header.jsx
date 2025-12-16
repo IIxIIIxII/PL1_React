@@ -32,6 +32,8 @@ export default function Header(){
             <h2>My Blog</h2>
             <nav className="nav">
                 <Link to='/'>Главная</Link>
+                <Link to='/about'>О нас</Link>
+                <Link to='/contacts'>Контакты</Link>
                 {!isAuth ? (
                     <>
                         <Link to='/register'>Регистрация</Link>
