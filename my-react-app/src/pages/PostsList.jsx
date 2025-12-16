@@ -36,19 +36,19 @@ export default function PostsList() {
 
   return (
     <div>
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 15}}>
+      <div className="posts-header">
         <h1>Посты</h1>
         <Link to='/create' className="add-button">Добавить пост</Link>
       </div>
 
       {posts.map(post => (
         <div key={post.id} className="post">
-          <div style={{display: 'flex', justifyContent: 'flex-end', gap: 8}}>
+          <div className="post-actions">
             <Link to={`/edit/${post.id}`} className="btn small">Изменить</Link>
             <button className="btn small danger" onClick={() => handleDelete(post.id)}>Удалить</button>
           </div>
 
-          <h3 style={{marginTop: 8}}>{post.title}</h3>
+          <h3 className="post-title-gap">{post.title}</h3>
           <Link className="read-link" to={`/post/${post.id}`}>Читать далее</Link>
         </div>
       ))}

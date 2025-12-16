@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PostsContext } from "../App";
+import '../styles/form.css';
 
 export default function EditPost(){
     const {id} = useParams();
@@ -53,7 +54,7 @@ export default function EditPost(){
             required
             />
 
-            <div style={{margin: 12}}>
+            <div className="form-actions">
                 <button className="btn primary" type="submit">Обновить</button>
             </div>
         </form>

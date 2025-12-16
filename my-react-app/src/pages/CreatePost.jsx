@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { PostsContext } from '../App';
+import '../styles/form.css';
 
 export default function CreatePost(){
     const [title, setTitle] = useState("")
@@ -54,7 +55,7 @@ export default function CreatePost(){
             required
             />
 
-            <div style={{margin: 12}}>
+            <div className="form-actions">
                 <button className="btn primary" type="submit">Отправить</button>
             </div>
         </form>

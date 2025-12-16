@@ -1,11 +1,12 @@
 .header{
-    padding: 16px 20px;
-    background: linear-gradient(90deg, rgba(255,199,221,0.6), rgba(255,245,247,0.6));
+    padding: 18px 28px;
+    background: linear-gradient(90deg, rgba(255,199,221,0.12), rgba(255,245,247,0.12));
     color: var(--text);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255,143,179,0.12);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    backdrop-filter: blur(6px);
 }
 
 .nav{
@@ -17,6 +18,8 @@
     color: var(--accent);
     text-decoration: none;
     font-weight: 600;
+    padding:8px 10px;
+    border-radius:8px;
 }
 
 .nav a:hover{
@@ -26,11 +29,27 @@
 .theme-toggle{
     margin-left:12px;
     background:transparent;
-    border:1px solid rgba(0,0,0,0.08);
-    padding:6px 8px;
-    border-radius:6px;
+    border:1px solid var(--border);
+    padding:6px 10px;
+    border-radius:10px;
     cursor:pointer;
+    font-size:16px;
+    line-height:1;
 }
+
+.nav-user{margin-left:6px;color:var(--text);font-weight:600;padding:6px 8px;border-radius:8px}
+
+.nav-logout{
+    margin-left:8px;
+    padding:8px 10px;
+    border-radius:10px;
+    background:transparent;
+    border:1px solid var(--border);
+    color:var(--text);
+    cursor:pointer;
+    transition:all 150ms ease;
+}
+.nav-logout:hover{background:var(--surface-hover);transform:translateY(-2px)}
 
 /* dark theme variables */
 :root[data-theme="dark"]{
@@ -49,4 +68,5 @@
 body{
     background: var(--bg);
     color: var(--text);
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }

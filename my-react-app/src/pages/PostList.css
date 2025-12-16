@@ -1,7 +1,11 @@
 .post {
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface), rgba(255,255,255,0));
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.06);
 }
 
 .post h3 {
@@ -9,10 +13,28 @@
 }
 
 .read-link{
-    color: #0077cc;
+    color:var(--accent);
     text-decoration: none;
 }
 
 .read-link:hover{
     text-decoration: underline;
 }
+
+.posts-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:16px;
+}
+
+.post-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:8px;
+}
+
+.post-title-gap{margin-top:8px}
+
+.add-button{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:10px 14px;border-radius:10px;text-decoration:none}
+.add-button:hover{opacity:0.95;transform:translateY(-2px)}

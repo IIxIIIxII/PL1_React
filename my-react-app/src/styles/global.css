@@ -1,0 +1,45 @@
+/* global.css — theme variables and resets */
+:root[data-theme="light"]{
+  --bg: #f6f7fb;
+  --card-bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #ff5a88;
+  --accent-2: #ff7aa0;
+  --surface: rgba(255,255,255,0.6);
+  --surface-hover: rgba(0,0,0,0.03);
+  --border: rgba(0,0,0,0.06);
+}
+
+:root[data-theme="dark"]{
+  /* deeper, slightly bluish background to replace flat gray */
+  --bg: linear-gradient(180deg,#061222 0%, #0b1224 100%);
+  --card-bg: #0d1622;
+  --text: #e6eef8;
+  --muted: #9ab0c9;
+  --accent: #ff9bb3;
+  --accent-2: #ff6f97;
+  --surface: rgba(255,255,255,0.03);
+  --surface-hover: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.06);
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+
+a{color:inherit}
+
+/* make buttons consistent */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card-bg);color:var(--text);cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:none}
+.btn.small{padding:6px 8px;font-size:13px}
+.btn.danger{background:transparent;color:#d9534f;border:1px solid rgba(217,83,79,0.12)}
+
+/* utility */
+.container{max-width:1000px;margin:28px auto;padding:0 16px}
+
+/* ensure links and text contrast */
+.read-link{color:var(--accent);}
+
+/* form, posts and layout inherit variables */

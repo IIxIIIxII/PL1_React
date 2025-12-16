@@ -1,0 +1,8 @@
+.form{max-width:840px;margin:28px auto;padding:22px;background:var(--card-bg);border-radius:12px;border:1px solid var(--border)}
+.form h1{margin-bottom:12px}
+.form input,.form textarea{display:block;width:100%;margin:10px 0;padding:12px;border:1px solid var(--border);border-radius:10px;background:transparent;color:var(--text)}
+.form textarea{min-height:140px}
+.form .form-actions{margin:14px 0}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:none;padding:10px 14px;border-radius:10px}
+.btn{cursor:pointer}
+.form input:focus,.form textarea:focus{outline:none;box-shadow:0 8px 28px rgba(0,0,0,0.08)}
