@@ -36,7 +36,6 @@ export default function App() {
     setPosts(prev => prev.filter(post => post.id !== id));
   };
 
-  // persist posts to localStorage whenever they change
   useEffect(() => {
     try {
       localStorage.setItem('posts', JSON.stringify(posts));
@@ -47,7 +46,6 @@ export default function App() {
 
   return (
     <PostsContext.Provider value={{ posts, setPosts, addPost, updatePost, deletePost }}>
-      {/* Убрали BrowserRouter здесь */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<PostsList />} />
