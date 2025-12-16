@@ -5,6 +5,7 @@ import "./Header.css";
 export default function Header(){
     const [isAuth, setIsAuth] = useState(false);
     const [userName, setUserName] = useState("");
+    const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,11 +22,18 @@ export default function Header(){
         }
     }, []);
 
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
     const logout = () => {
         localStorage.removeItem('isAuth');
         navigate('/login');
         setIsAuth(false);
     }
+
+    const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
 
     return (
         <header className="header">
@@ -45,6 +53,7 @@ export default function Header(){
                         <button className="nav-logout" onClick={logout}>Выйти</button>
                     </>
                 )}
+                <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">{theme === 'light' ? '🌞' : '🌙'}</button>
             </nav>
         </header>
     )

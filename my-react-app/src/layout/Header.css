@@ -22,3 +22,31 @@
 .nav a:hover{
     text-decoration: underline;
 }
+
+.theme-toggle{
+    margin-left:12px;
+    background:transparent;
+    border:1px solid rgba(0,0,0,0.08);
+    padding:6px 8px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* dark theme variables */
+:root[data-theme="dark"]{
+    --bg: #121212;
+    --text: #e6e6e6;
+    --accent: #ffb6c1;
+}
+
+/* light theme defaults */
+:root[data-theme="light"]{
+    --bg: #ffffff;
+    --text: #222222;
+    --accent: #ff5a88;
+}
+
+body{
+    background: var(--bg);
+    color: var(--text);
+}
