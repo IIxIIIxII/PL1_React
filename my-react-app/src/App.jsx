@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import Layout from './layout/Layout';
 import PostsList from './pages/PostsList';
 import PostDetail from './pages/PostDetail';
@@ -12,7 +12,14 @@ import Profile from './pages/Profile';
 export const PostsContext = createContext();
 
 export default function App() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(() => {
+    try {
+      const raw = localStorage.getItem('posts');
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  });
 
   const addPost = (newPost) => {
     const postWithId = { ...newPost, id: Date.now() };
@@ -26,6 +33,15 @@ export default function App() {
   const deletePost = (id) => {
     setPosts(prev => prev.filter(post => post.id !== id));
   };
+
+  // persist posts to localStorage whenever they change
+  useEffect(() => {
+    try {
+      localStorage.setItem('posts', JSON.stringify(posts));
+    } catch (e) {
+      // ignore write errors
+    }
+  }, [posts]);
 
   return (
     <PostsContext.Provider value={{ posts, setPosts, addPost, updatePost, deletePost }}>
