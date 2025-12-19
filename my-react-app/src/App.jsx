@@ -40,7 +40,7 @@ export default function App() {
     try {
       localStorage.setItem('posts', JSON.stringify(posts));
     } catch (e) {
-      // ignore write errors
+      //
     }
   }, [posts]);
 

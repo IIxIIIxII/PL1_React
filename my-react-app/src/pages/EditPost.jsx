@@ -41,7 +41,7 @@ export default function EditPost(){
 
       return (
         <form onSubmit={handleUpdate} className="form">
-            <h1>Изменит пост</h1>
+            <h1>Изменить пост</h1>
             <input 
             value={post.title}
             onChange={e => setPost({...post, title:e.target.value})}

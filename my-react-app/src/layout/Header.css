@@ -51,14 +51,12 @@
 }
 .nav-logout:hover{background:var(--surface-hover);transform:translateY(-2px)}
 
-/* dark theme variables */
 :root[data-theme="dark"]{
     --bg: #121212;
     --text: #e6e6e6;
     --accent: #ffb6c1;
 }
 
-/* light theme defaults */
 :root[data-theme="light"]{
     --bg: #ffffff;
     --text: #222222;
